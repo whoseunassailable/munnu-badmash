@@ -7,9 +7,9 @@ const NAMES = { me: 'Munnu', her: 'Pingu' };
 // key; Email Services / Email Templates for the other two IDs). Leave any of
 // them as-is to skip sending a notification.
 const EMAILJS_CONFIG = {
-  publicKey: 'YOUR_PUBLIC_KEY',
-  serviceId: 'YOUR_SERVICE_ID',
-  templateId: 'YOUR_TEMPLATE_ID',
+  publicKey: '-gY4sdEFHROIn4jKJ',
+  serviceId: 'service_9a7hyr5',
+  templateId: 'template_w0qrj8p',
 };
 
 const POP_MESSAGES = [
@@ -369,9 +369,13 @@ function showEnding(tier) {
 function notifyGameCompleted(tier) {
   const { publicKey, serviceId, templateId } = EMAILJS_CONFIG;
   if (!publicKey || publicKey === 'YOUR_PUBLIC_KEY' || typeof emailjs === 'undefined') return;
-  emailjs
-    .send(serviceId, templateId, { tier, time: new Date().toLocaleString() }, { publicKey })
-    .catch(() => {});
+  const params = {
+    tier,
+    time: new Date().toLocaleString(),
+    name: `${NAMES.me}'s Game`,
+    message: `${NAMES.her} just finished the game! Ending: ${tier}.`,
+  };
+  emailjs.send(serviceId, templateId, params, { publicKey }).catch(() => {});
 }
 
 function launchConfetti() {
