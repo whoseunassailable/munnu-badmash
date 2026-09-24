@@ -1,0 +1,113 @@
+.pin-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #ffe3ec 0%, #f3e6ff 50%, #e3f0ff 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .pin-screen {
+    background: linear-gradient(135deg, #2a1f33 0%, #241f3d 50%, #1f2a3d 100%);
+  }
+}
+
+.pin-card {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 28px;
+  padding: 32px 28px;
+  box-shadow: 0 20px 50px rgba(150, 100, 160, 0.25);
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pin-card {
+    background: rgba(40, 30, 48, 0.85);
+    color: #f0e6f5;
+  }
+}
+
+.pin-card h1 {
+  font-size: 1.4rem;
+  margin: 0 0 8px;
+}
+
+.pin-card p {
+  color: #8a7590;
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+}
+
+.pin-card input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 2px solid #e8d5ee;
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+}
+
+.pin-card input:focus {
+  border-color: #c88fff;
+}
+
+.pin-error {
+  color: #e0668f !important;
+  font-size: 0.85rem !important;
+  margin-top: 10px !important;
+}
+
+.pin-card button {
+  margin-top: 16px;
+  border: none;
+  background: linear-gradient(135deg, #ff8fb1, #c88fff);
+  color: white;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 12px 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(200, 100, 180, 0.35);
+}
+
+.gallery-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1a1424;
+}
+
+.gallery-header {
+  text-align: center;
+  padding: 20px 16px 12px;
+  color: #f0e6f5;
+}
+
+.gallery-header h1 {
+  font-size: 1.3rem;
+  margin: 0 0 4px;
+}
+
+.gallery-header p {
+  margin: 0;
+  color: #c3aecb;
+  font-size: 0.9rem;
+}
+
+.gallery-stage {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.gallery-stage .sphere-root {
+  position: absolute;
+  inset: 0;
+}

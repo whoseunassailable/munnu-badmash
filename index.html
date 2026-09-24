@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sorry, Pingu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- INTRO -->
+  <section id="screen-intro" class="screen active">
+    <div class="card">
+      <div class="mood-img" data-mood="angry">
+        <img src="images/pingu-angry.png" alt="Pingu angry" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
+        <span class="fallback-emoji">&#128544;</span>
+      </div>
+      <h1>A little something from Munnu</h1>
+      <p class="subtitle">for the angriest, cutest Pingu in the world</p>
+      <button class="btn-primary" id="btn-start">Start</button>
+    </div>
+  </section>
+
+  <!-- STAGE 1: Pop the Grumps -->
+  <section id="screen-stage1" class="screen">
+    <div class="card wide">
+      <h2>Stage 1 &middot; Pop the Grumps</h2>
+      <p class="hint">Tap the grumpy faces before time runs out!</p>
+      <div class="hud">
+        <span>&#9201; <span id="s1-time">30</span>s</span>
+        <span>&#10024; <span id="s1-score">0</span></span>
+      </div>
+      <div id="bubble-field"></div>
+    </div>
+  </section>
+
+  <!-- STAGE 1 RESULT -->
+  <section id="screen-stage1-result" class="screen">
+    <div class="card">
+      <div class="mood-img" data-mood="happy">
+        <img src="images/pingu-happy.png" alt="Pingu happy" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
+        <span class="fallback-emoji">&#128522;</span>
+      </div>
+      <h2>Nice popping!</h2>
+      <p id="s1-result-text"></p>
+      <button class="btn-primary" id="btn-to-stage2">Continue</button>
+    </div>
+  </section>
+
+  <!-- STAGE 2: Calm-o-Meter -->
+  <section id="screen-stage2" class="screen">
+    <div class="card">
+      <h2>Stage 2 &middot; Calm-o-Meter</h2>
+      <div class="meter-track">
+        <div class="meter-fill" id="meter-fill"></div>
+      </div>
+      <p class="meter-label" id="meter-label">Furious &#128548;</p>
+      <div class="mood-img big" id="s2-mood" data-mood="angry">
+        <img src="images/pingu-angry.png" alt="Pingu angry" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
+        <span class="fallback-emoji">&#128544;</span>
+      </div>
+      <div id="floaters" class="floaters-zone"></div>
+      <div class="btn-grid">
+        <button class="btn-action" data-action="flower">&#127800; Give flower</button>
+        <button class="btn-action" data-action="joke">&#128514; Tell a joke</button>
+        <button class="btn-action" data-action="hug">&#129303; Send a hug</button>
+        <button class="btn-action" data-action="compliment">&#128150; Compliment</button>
+      </div>
+      <button class="btn-primary hidden" id="btn-to-stage3">Continue</button>
+    </div>
+  </section>
+
+  <!-- STAGE 3: Match & Mend -->
+  <section id="screen-stage3" class="screen">
+    <div class="card wide">
+      <h2>Stage 3 &middot; Match &amp; Mend</h2>
+      <p class="hint">Find the pairs to reveal a message</p>
+      <div id="match-grid" class="match-grid"></div>
+      <div class="message-box" id="message-box"></div>
+      <button class="btn-primary hidden" id="btn-to-stage4">Continue</button>
+    </div>
+  </section>
+
+  <!-- STAGE 4: Apology Quest -->
+  <section id="screen-stage4" class="screen">
+    <div class="card">
+      <h2>Stage 4 &middot; The Talk</h2>
+      <div class="mood-img" id="s4-mood" data-mood="neutral">
+        <img src="images/pingu-neutral.png" alt="Pingu neutral" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
+        <span class="fallback-emoji">&#128528;</span>
+      </div>
+      <p class="dialogue" id="s4-line"></p>
+      <div class="choices" id="s4-choices"></div>
+    </div>
+  </section>
+
+  <!-- ENDING -->
+  <section id="screen-ending" class="screen">
+    <div class="card">
+      <div id="confetti" class="confetti-zone"></div>
+      <div class="mood-img big" data-mood="love">
+        <img src="images/pingu-love.png" alt="Pingu love" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
+        <span class="fallback-emoji">&#129395;</span>
+      </div>
+      <h1 id="ending-title">You did it!</h1>
+      <p id="ending-message"></p>
+      <div class="coupon" id="coupon"></div>
+      <a class="btn-primary" id="btn-gallery" href="gallery/">See her gallery 💛</a>
+      <button class="btn-primary btn-secondary" id="btn-replay">Play again</button>
+    </div>
+  </section>
+
+</div>
+<script src="game.js"></script>
+</body>
+</html>
