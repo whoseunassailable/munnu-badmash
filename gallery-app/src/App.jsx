@@ -3,7 +3,7 @@ import DomeGallery from './components/DomeGallery/DomeGallery';
 import './App.css';
 
 // Edit this to whatever you told Pingu.
-const GALLERY_PIN = 'pingu';
+const GALLERY_PIN = '150899';
 
 function App() {
   const [unlocked, setUnlocked] = useState(() => sessionStorage.getItem('gallery-unlocked') === 'true');
