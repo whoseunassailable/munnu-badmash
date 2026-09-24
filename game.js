@@ -3,6 +3,15 @@
 // ====================================================================
 const NAMES = { me: 'Munnu', her: 'Pingu' };
 
+// Fill these in from your EmailJS dashboard (Account > General for the public
+// key; Email Services / Email Templates for the other two IDs). Leave any of
+// them as-is to skip sending a notification.
+const EMAILJS_CONFIG = {
+  publicKey: 'YOUR_PUBLIC_KEY',
+  serviceId: 'YOUR_SERVICE_ID',
+  templateId: 'YOUR_TEMPLATE_ID',
+};
+
 const POP_MESSAGES = [
   "You're too cute to stay mad \u{1F97A}",
   'Best friend loading... 100%',
@@ -354,6 +363,15 @@ function showEnding(tier) {
   setMood(document.querySelector('#screen-ending .mood-img'), tier);
   showScreen('screen-ending');
   launchConfetti();
+  notifyGameCompleted(tier);
+}
+
+function notifyGameCompleted(tier) {
+  const { publicKey, serviceId, templateId } = EMAILJS_CONFIG;
+  if (!publicKey || publicKey === 'YOUR_PUBLIC_KEY' || typeof emailjs === 'undefined') return;
+  emailjs
+    .send(serviceId, templateId, { tier, time: new Date().toLocaleString() }, { publicKey })
+    .catch(() => {});
 }
 
 function launchConfetti() {
