@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/gallery/',
+  base: '/munnu-badmash/gallery/',
   build: {
     outDir: '../gallery',
     emptyOutDir: true,
